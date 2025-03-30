@@ -1,0 +1,27 @@
+{
+  "base_model": "C:/Users/hiron/.lmstudio/models/lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF/llama-3.1-8b-instruct.Q4_K_M.gguf",
+  "model_type": "llama",
+  "load_in_8bit": true,
+  "use_flash_attention_2": true,
+  "datasets": [
+    {
+      "path": "data/インプット①_202503300.jsonl",
+      "type": "alpaca"
+    }
+  ],
+  "dataset_prepared_path": "data/processed",
+  "adapter": "lora",
+  "lora_config": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.1
+  },
+  "training": {
+    "batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "epochs": 3,
+    "learning_rate": 2e-4
+  },
+  "wandb_project": "llama3-lora-tune",
+  "output_dir": "outputs/llama3-lora-distilled"
+}
