@@ -1,0 +1,35 @@
+{
+  "base_model": "meta-llama/Meta-Llama-3-8B",
+  "model_type": "llama",
+  "load_in_8bit": true,
+  "use_flash_attention_2": true,
+
+  "datasets": [
+    {
+      "path": "data/training_data.jsonl",
+      "type": "alpaca"
+    }
+  ],
+
+  "dataset_prepared_path": "data/processed",
+
+  "adapter": "lora",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+
+  "sequence_len": 2048,
+  "sample_packing": true,
+  "pad_to_sequence_len": true,
+
+  "batch_size": 2,
+  "gradient_accumulation_steps": 8,
+  "epochs": 3,
+  "optimizer": "adamw_bnb_8bit",
+  "lr": 2e-4,
+  "train_on_inputs": false,
+  "group_by_length": true,
+
+  "wandb_project": "llama3-lora-tune",
+  "output_dir": "outputs/llama3-lora"
+}
